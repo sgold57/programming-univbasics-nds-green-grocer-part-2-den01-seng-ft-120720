@@ -1,4 +1,5 @@
 require_relative './part_1_solution.rb'
+requre 'pry'
 
 def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
