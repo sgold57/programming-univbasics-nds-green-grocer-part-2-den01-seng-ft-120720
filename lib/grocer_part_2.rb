@@ -17,6 +17,7 @@ def apply_coupons(cart, coupons)
         :clearance => item4markdown[:clearance],
         :count => coupon_item[:num]
       }
+      binding.pry
     end
   end
   cart
