@@ -11,8 +11,15 @@ def apply_coupons(cart, coupons)
     if item4markdown
       item4markdown[:count] = item4markdown[:count] - coupon_item[:num]
       binding.pry
+      cart.push {
+        :item => "#{item4markdown[:item]} W/ COUPON",
+        :price => (coupon_item[:cost] / coupon_item[:num]).round(2),
+        :clearance => item4markdown[:clearance],
+        :count => coupon_item[:num]
+      }
     end
   end
+  cart
 end
 
 def apply_clearance(cart)
