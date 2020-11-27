@@ -7,7 +7,7 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon_item|
     item4markdown = find_item_by_name_in_collection(coupon_item[:item], cart)
-    if item4markdown
+    if item4markdown[:count] >= coupon_item[:num]
       item4markdown[:count] = item4markdown[:count] - coupon_item[:num]
       cart << {
         :item => "#{item4markdown[:item]} W/COUPON",
