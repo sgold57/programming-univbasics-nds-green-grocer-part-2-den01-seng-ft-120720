@@ -7,17 +7,14 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon_item|
     item4markdown = find_item_by_name_in_collection(coupon_item[:item], cart)
-    binding.pry
     if item4markdown
       item4markdown[:count] = item4markdown[:count] - coupon_item[:num]
-      binding.pry
       cart << {
         :item => "#{item4markdown[:item]} W/ COUPON",
         :price => (coupon_item[:cost] / coupon_item[:num]).round(2),
         :clearance => item4markdown[:clearance],
         :count => coupon_item[:num]
       }
-      binding.pry
     end
   end
   cart
